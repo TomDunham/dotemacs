@@ -1,5 +1,18 @@
 ;; Basic keymaps
 ; Largly from Steve Yegge
+; http://emacsredux.com/blog/2013/03/27/copy-filename-to-the-clipboard/
+
+
+(defun copy-file-name-to-clipboard ()
+  "Copy the current buffer file name to the clipboard."
+  (interactive)
+  (let ((filename (if (equal major-mode 'dired-mode)
+                      default-directory
+                    (buffer-file-name))))
+    (when filename
+      (kill-new filename)
+      (message "Copied buffer file name '%s' to the clipboard." filename))))
+
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
 
@@ -10,7 +23,7 @@
 (global-set-key (kbd "C-<return>") 'hippie-expand)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "<f5>") 'call-last-kbd-macro)
-
+(global-set-key (kbd "C-c h") 'copy-file-name-to-clipboard)
 
 ; no ui for me
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
