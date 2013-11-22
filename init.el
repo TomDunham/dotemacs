@@ -48,19 +48,13 @@
    'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t))
 
 ; my list of packages
-(defvar td-packages '(ack magit flymake-cursor column-marker))
+(defvar td-packages '(ack magit column-marker flycheck))
 
 ; I run this when I start a new install
 (defun td-install-packages ()
   "Install my standard packages"
   (interactive)
   (mapcar 'package-install td-packages))
-
-
-
-(eval-after-load "flymake"
-  '(progn
-     (require 'flymake-cursor)))
 
 
 ;; Magit
@@ -72,19 +66,8 @@
 
 
 ;; Python
-; Pyflakes
-(when (load "flymake" t)
-  (defun flymake-pyflakes-init ()
-    (let* ((temp-file (flymake-init-create-temp-buffer-copy
-                       'flymake-create-temp-inplace))
-           (local-file (file-relative-name
-                        temp-file
-                        (file-name-directory buffer-file-name))))
-      (list "pyflakes" (list local-file))))
-  (add-to-list 'flymake-allowed-file-name-masks
-               '("\\.py\\'" flymake-pyflakes-init)))
 
-(add-hook 'find-file-hook 'flymake-find-file-hook)
+
 
 ; 72 char marker for docstrings / comments
 ; whitespace-mode handles highlighting for line too long
