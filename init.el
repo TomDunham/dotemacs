@@ -36,7 +36,7 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
-; Whitespace
+; Whitespace (global)
 (global-whitespace-mode t)  ;; configured via customize
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -57,6 +57,8 @@
   (mapcar 'package-install td-packages))
 
 
+(global-flycheck-mode t)
+
 ;; Magit
 (global-set-key
      "\M-?"
@@ -66,8 +68,6 @@
 
 
 ;; Python
-
-
 
 ; 72 char marker for docstrings / comments
 ; whitespace-mode handles highlighting for line too long
