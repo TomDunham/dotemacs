@@ -66,6 +66,12 @@
        (interactive)
        (call-interactively 'magit-status)))
 
+(eval-after-load "ack-mode"
+    (progn
+      (global-set-key (kbd "C-c a") 'ack)))
+
+
+
 
 ;; Python
 
@@ -78,6 +84,7 @@
 (setq-default abbrev-mode t)
 (define-abbrev-table 'global-abbrev-table '(
   ("ipdbst" "import ipdb; ipdb.set_trace()" nil 1)
+  ("ipdbpm" "import sys,ipdb; ipdb.post_mortem(sys.exc_info()[2])" nil 1)
 ))
 
 
