@@ -82,7 +82,7 @@
 
 ;; Abbrevs
 (setq-default abbrev-mode t)
-(define-abbrev-table 'global-abbrev-table '(
+(define-abbrev-table 'python-mode-abbrev-table'(
   ("ipdbst" "import ipdb; ipdb.set_trace()" nil 1)
   ("ipdbpm" "import sys,ipdb; ipdb.post_mortem(sys.exc_info()[2])" nil 1)
 ))
