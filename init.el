@@ -72,13 +72,18 @@
 
 
 
-
 ;; Python
 
 ; 72 char marker for docstrings / comments
 ; whitespace-mode handles highlighting for line too long
 (add-hook 'python-mode-hook (lambda () (interactive) (column-marker-1 72)))
 
+
+;; Scala
+(add-to-list 'auto-mode-alist '("\\.scala\\'" . scala-mode))
+
+;; Aurora
+(add-to-list 'auto-mode-alist '("\\.aurora\\'" . aurora-config-mode))
 
 ;; Abbrevs
 (setq-default abbrev-mode t)
