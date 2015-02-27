@@ -1,7 +1,8 @@
+;;; Code:
+
 ;; Basic keymaps
 ; Largly from Steve Yegge
 ; http://emacsredux.com/blog/2013/03/27/copy-filename-to-the-clipboard/
-
 
 (defun copy-file-name-to-clipboard ()
   "Copy the current buffer file name to the clipboard."
@@ -48,7 +49,11 @@
    'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t))
 
 ; my list of packages
-(defvar td-packages '(ack magit column-marker flycheck))
+(defvar td-packages
+  '(ack aurora-config-mode cider clojure-mode column-marker
+  confluence scala-mode2 flycheck markdown-mode window-number
+  yaml-mode jira confluence))
+
 
 ; I run this when I start a new install
 (defun td-install-packages ()
@@ -111,6 +116,5 @@
  ;; If there is more than one, they won't work right.
  )
 
-
-
 (server-start)
+;;; init.el ends here
