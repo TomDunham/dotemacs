@@ -48,32 +48,26 @@
   (add-to-list
    'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t))
 
-; my list of packages
+
+(use-package magit
+  :bind ("\M-?" . magit-status)
+  :ensure t)
+
+
+(use-package markdown-mode :ensure t)
+
+
+
+; my old list of packages
 (defvar td-packages
-  '(ack aurora-config-mode cider clojure-mode column-marker
-  confluence scala-mode2 flycheck markdown-mode window-number
-  yaml-mode jira confluence))
+  '(column-marker
+    flycheck
+    window-number
+    yaml-mode ))
 
 
-; I run this when I start a new install
-(defun td-install-packages ()
-  "Install my standard packages"
-  (interactive)
-  (mapcar 'package-install td-packages))
 
-
-(global-flycheck-mode t)
-
-;; Magit
-(global-set-key
-     "\M-?"
-     (lambda ()
-       (interactive)
-       (call-interactively 'magit-status)))
-
-(eval-after-load "ack-mode"
-    (progn
-      (global-set-key (kbd "C-c a") 'ack)))
+;(global-flycheck-mode t)
 
 
 
@@ -84,11 +78,6 @@
 (add-hook 'python-mode-hook (lambda () (interactive) (column-marker-1 72)))
 
 
-;; Scala
-(add-to-list 'auto-mode-alist '("\\.scala\\'" . scala-mode))
-
-;; Aurora
-(add-to-list 'auto-mode-alist '("\\.aurora\\'" . aurora-config-mode))
 
 ;; Abbrevs
 (setq-default abbrev-mode t)
