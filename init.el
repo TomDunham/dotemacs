@@ -50,7 +50,7 @@
 
 
 (use-package magit
-  :bind ("\M-?" . magit-status)
+  :init (global-set-key "\M-?" 'magit-status)
   :ensure t)
 
 
