@@ -56,6 +56,9 @@
 
 (use-package markdown-mode :ensure t)
 
+(use-package php-mode
+  :ensure t
+  :mode ("\\.php\\'" . php-mode))
 
 
 ; my old list of packages
@@ -93,6 +96,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(indent-tabs-mode nil)
+ '(package-selected-packages (quote (php-mode use-package markdown-mode magit)))
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(uniquify-buffer-name-style (quote post-forward) nil (uniquify))
  '(whitespace-style (quote (face empty tabs lines-tail trailing))))
