@@ -41,6 +41,11 @@
 (global-whitespace-mode t)  ;; configured via customize
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+
+;; Faster than default tramp scp, according to emacswiki
+(setq tramp-default-method "ssh")
+
+
 ;; Package manager
 (when (>= emacs-major-version 24)
   (require 'package)
