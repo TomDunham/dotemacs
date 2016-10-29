@@ -66,25 +66,28 @@
   :mode ("\\.php\\'" . php-mode))
 
 
-; my old list of packages
-(defvar td-packages
-  '(column-marker
-    flycheck
-    window-number
-    yaml-mode ))
+(use-package gitconfig-mode
+  :ensure t
+  :defer t)
+
+(use-package gitignore-mode
+  :ensure t
+  :defer t)
+
+(use-package guide-key
+  :ensure t
+  :diminish guide-key-mode
+  :config
+  (progn
+    (setq guide-key/popup-window-position 'bottom
+          guide-key/guide-key-sequence t  ; enable for all prefixes
+          guide-key/recursive-key-sequence-flag t)
+
+    (guide-key-mode 1)))
 
 
-
-;(global-flycheck-mode t)
-
-
-
-;; Python
-
-; 72 char marker for docstrings / comments
-; whitespace-mode handles highlighting for line too long
-(add-hook 'python-mode-hook (lambda () (interactive) (column-marker-1 72)))
-
+;; if I want col markers again, prob fill-column-indicator
+;; like this: https://github.com/bdd/.emacs.d/blob/master/packages.el#L76
 
 
 ;; Abbrevs
@@ -101,7 +104,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(indent-tabs-mode nil)
- '(package-selected-packages (quote (php-mode use-package markdown-mode magit)))
+ '(package-selected-packages
+   (quote
+    (guide-key gitignore-mode gitconfig-mode php-mode use-package markdown-mode magit)))
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(uniquify-buffer-name-style (quote post-forward) nil (uniquify))
  '(whitespace-style (quote (face empty tabs lines-tail trailing))))
