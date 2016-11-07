@@ -53,6 +53,9 @@
   (add-to-list
    'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t))
 
+(use-package browse-kill-ring
+  :ensure t)
+
 
 (use-package magit
   :init (global-set-key "\M-?" 'magit-status)
@@ -86,6 +89,12 @@
     (guide-key-mode 1)))
 
 
+(use-package yaml-mode
+  :ensure t
+  :mode ("\\.yaml\\'" . yaml-mode))
+
+
+
 ;; if I want col markers again, prob fill-column-indicator
 ;; like this: https://github.com/bdd/.emacs.d/blob/master/packages.el#L76
 
@@ -106,7 +115,7 @@
  '(indent-tabs-mode nil)
  '(package-selected-packages
    (quote
-    (guide-key gitignore-mode gitconfig-mode php-mode use-package markdown-mode magit)))
+    (browse-kill-ring yaml-mode guide-key gitignore-mode gitconfig-mode php-mode use-package markdown-mode magit)))
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(uniquify-buffer-name-style (quote post-forward) nil (uniquify))
  '(whitespace-style (quote (face empty tabs lines-tail trailing))))
