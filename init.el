@@ -199,11 +199,6 @@
 ;; should be in own file
 ;; find source code locations in browser
 
-;; Github enterprise URLs
-(setq s5-proj-map
-      '(("$HOME/proj/chef-repo" . "https://slack-github.com/slack/chef-repo/blob/%s/%s")
-        ("$HOME/proj/webapp" . "https://slack-github.com/slack/webapp/blob/%s/%s")
-        ("$HOME/proj/gosrc/src/slack-github.com/slack/ops-go.git" . "https://slack-github.com/slack/ops-go/blob/%s/%s")))
 
 
 (defun s5-proj-prefix-p (fn ele)
