@@ -196,9 +196,13 @@
 (server-start)
 
 
-;; should be in own file
 ;; find source code locations in browser
 
+;; load the map
+;; (setq s5-proj-map
+;;       '(("$HOME/proj/foo" . "https://github.com/foobar/foo/blob/%s/%s")
+
+(load  (expand-file-name "slack" user-emacs-directory) t)
 
 
 (defun s5-proj-prefix-p (fn ele)
